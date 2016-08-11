@@ -17,25 +17,43 @@ for(var i=0; i<presidents.length; i++){
 	console.log("Value at index " + [i] + " is: " + presidents[i]); 
 }
 
-
+function printContent(names){
+	for(var i=0; i<names.length; i++){
+		console.log(names[i]);
+	}
+	return names;
+}
+console.log(presidents);
 
 /*Declare a variable named `stringOfNumbers` and set it's value to `''` (an empty String).*/
 
 /*Then write a _FOR_ loop that appends a Number value to that string starting from `10` all the way up to and including `20`.*/
 
-
-
 /***bonus:** could you take the code inside of this _FOR_ loop and encapsulate it inside of a function called `appendToString` and still achieve the same result?*/
+var stringOfNumbers="";
+for(var i=10; i<21; i++){
+	stringOfNumbers += i; //=>stringOfNumbers = stringOfNumbers + i
+}
+console.log(stringOfNumbers);
 
-
-
+function appendToString(str){
+	for(var i=10; i<21; i++){
+		str += i;
+	}
+	return str;
+}
+console.log(appendToString(stringOfNumbers));
 /*## `Add only even numbrs to an array`
 Declare a variable named `evenNumberArray`.
 
 Use a _FOR_ loop to add only even numbers to an Array. Add `50` even numbers to the `evenNumberArray` starting with the value `0`.*/
-
-  
-
+var evenNumberArray=[];
+for(var i=0; i<99; i++){
+	if(i%2===0){
+		evenNumberArray.push(i);
+	}
+}  
+console.log(evenNumberArray);
 /*## `Accessing only the odd indexes of an Array - 'Not Even Brah'`
 Someone forgot to fill out this array! Oh noes...
 
@@ -47,9 +65,13 @@ Example result should look like:
 
 ```javascript
 `[ 'turn' , 'nope' , 'down' , 'nope' , 'for' , 'nope' , 'what' ]`*/
-
-
-
+var oopsArray=['turn', '','down','','for','','what'];
+for(var i=0; i<oopsArray.length; i++){
+	if(i%2===1){
+		oopsArray[i]='nope';
+	}
+}
+console.log(oopsArray);
 /*## `Going backwards?!`
 Using a _FOR_ loop, iterate through the Array stored at `oopsArray` **backwards**. `console.log` each value in the Array.
 
@@ -63,10 +85,11 @@ down
 nope
 turn
 ```*/
-
-
-
-
+var backwardsOopsArray=[];
+for(var i=oopsArray.length-1; i>=0; i--){
+	backwardsOopsArray.push(oopsArray[i]);
+}
+console.log(backwardsOopsArray);
 /*## `isNapTime`
 Declare a variable named `isNapTime`. Set it to `false`
 
@@ -78,9 +101,19 @@ Declare a function named `nap`. This function takes in a single parameter called
 - otherwise if `schedule` is `false` use `console.log` to display the message `Gotta get to work!` and then change the value of `isNapTime` to `true`
 
 Now, Write a FOR loop that iterates through the `napSchedule` array and runs the function `nap` while passing in the value at the current position of `napSchedule` into the `nap` function.*/
-
-
-
+/*var isNapTime=false;*/
+var napSchedule=[false, false, true, false, true, true];
+function nap(schedule){
+	for(var i=0; i<schedule.length; i++){
+		if(schedule[i]===true){
+			console.log("ZzZzZzZz");
+		}else{
+			console.log("Gotta get to work!");
+			isNapTime=true;
+		}
+	}
+}
+nap(napSchedule);
 
 /*Declare a variable named `valuesArray` and set it's value to be an array, `[99, 66, 829, 1941, 8, 76]`.
 
